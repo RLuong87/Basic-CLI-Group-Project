@@ -53,7 +53,7 @@ public class Main {
 
     }
 
-    public static void reverseStr(String str) {
+    static void reverseStr(String str) {
 
         String revStr = "";
 
@@ -63,13 +63,14 @@ public class Main {
         System.out.println(revStr);
     }
 
-    public static void displayMenu() {
+    static void displayMenu() {
 
-        System.out.println("Welcome to Rich's CLI");
+        System.out.println("Welcome to Richie's CLI");
         int option;
         do {
             scanner = new Scanner(System.in);
             System.out.println();
+            System.out.println("Please choose an option to continue");
             System.out.println("==========================================");
             System.out.println("1. Say Hello");
             System.out.println("2. Reverse a string");
@@ -112,7 +113,7 @@ public class Main {
                     break;
 
                 default:
-                    System.out.println("This is an invalid selection\nPlease, try again");
+                    System.out.println("This is not a valid selection\nPlease, try again");
                     break;
             }
         } while (option != 4);
