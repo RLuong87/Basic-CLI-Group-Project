@@ -3,12 +3,13 @@ package com.company;
 import java.util.Scanner;
 
 /*
-This will be a new InteliJ project and a new GItHub Repo. Make sure everyone present in class is able to get their GitHub set up properly before starting. Then set a 30 minute timer for everyone to work on the first section solo.
+This will be a new InteliJ project and a new GItHub Repo.
+Make sure everyone present in class is able to get their GitHub set up properly before starting.
+Then set a 30 minute timer for everyone to work on the first section solo.
 
 -- SOLO --
 
 Spend the first 30 minutes trying to do the following solo
-
 
 Create an application that can take a user's name as input from the terminal
 Have the application display a message --> Hello <name>
@@ -44,35 +45,31 @@ If the user enters an invalid selection, the program should prompt the. user wit
 
 public class Main {
 
+    public static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
-
-
 
         displayMenu();
 
     }
 
-    public static void reverseSTR(String str) {
-
-        String[] newStr = str.split(" ");
+    public static void reverseStr(String str) {
 
         String revStr = "";
 
-        for (int i = newStr.length - 1; i >= 0 ; i--) {
-
-            revStr += newStr[i];
+        for (int i = str.length() - 1; i >= 0; i--) {
+            revStr += str.charAt(i);
         }
         System.out.println(revStr);
     }
 
+    public static void displayMenu() {
 
-
-        public static void displayMenu() {
-
-            int option;
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Welcome to Gabe's CLI");
-            System.out.println("\n");
+        System.out.println("Welcome to Rich's CLI");
+        int option;
+        do {
+            scanner = new Scanner(System.in);
+            System.out.println();
             System.out.println("==========================================");
             System.out.println("1. Say Hello");
             System.out.println("2. Reverse a string");
@@ -80,34 +77,48 @@ public class Main {
             System.out.println("4. Exit the program");
             System.out.println("==========================================");
 
-                do {
-                    System.out.println("===========================================================");
-                    System.out.println("Enter an option");
-                    option = scanner.nextInt();
-                    System.out.println("\n");
+            System.out.print("Selection: ");
+            option = scanner.nextInt();
+            System.out.println();
 
-                    switch (option) {
+            switch (option) {
 
-                        case 1:
-                            System.out.println("What is your name?");
-                            String name = scanner.nextLine();
-                            System.out.println("Hello " + name);
-                            break;
+                case 1:
+                    System.out.println("What is your name?");
+                    String name = scanner.next();
+                    System.out.println("Hello " + name);
+                    System.out.println("==========================================");
+                    break;
 
-                        case 2:
-                            System.out.println("Enter a string to reverse it");
-                            String str = scanner.nextLine();
-                            reverseSTR(str);
-                            break;
+                case 2:
+                    System.out.print("Enter a string to reverse\nInput: ");
+                    String str = scanner.next();
+                    System.out.print("Result: ");
+                    reverseStr(str);
+                    System.out.println("==========================================");
+                    break;
 
-                        case 3:
-                            System.out.println("Enter a number");
-                            int num1 = scanner.nextInt();
-                            System.out.println("Enter another number");
+                case 3:
+                    System.out.println("Enter a number");
+                    int num1 = scanner.nextInt();
+                    System.out.println("Enter another number");
+                    int num2 = scanner.nextInt();
+                    System.out.println("Result: " + (num1 + num2));
+                    System.out.println("==========================================");
+                    break;
 
+                case 4:
+                    System.out.println("******************************************");
+                    break;
 
-                    } while(option != 4);
-                
+                default:
+                    System.out.println("This is an invalid selection\nPlease, try again");
+                    break;
             }
-        }
+        } while (option != 4);
+
+        System.out.println("Thank you for your participation");
+        System.out.println("******************************************");
+    }
 }
+
