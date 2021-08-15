@@ -50,15 +50,31 @@ public class Main {
     public static void main(String[] args) {
 
         displayMenu();
-
     }
 
-    static void reverseStr(String str) {
+    static void reverseStr() {
 
+        String str = scanner.nextLine();
+        // Created a new character array as a place holder for the string
+        char[] chars = new char[str.length()]; // str.length() will indicate a sequence of a string or strings
+
+        // count variable
+        int num = 0;
+
+        // iterating through the length of the string with a reverse for loop
+        for (int i = str.length() - 1; i >= 0; i--) {
+            /*
+             use num in bracket notations to count the characters and using charAt(i) to loop through each character
+             and return characters in reverse
+             */
+            chars[num] = str.charAt(i); // gaining access to each character
+            num++; // increment each time until the end of the loop
+
+        }
         String revStr = "";
 
-        for (int i = str.length() - 1; i >= 0; i--) {
-            revStr += str.charAt(i);
+        for (int i = 0; i < str.length(); i++) {
+            revStr += chars[i];
         }
         System.out.println(revStr);
     }
@@ -67,6 +83,7 @@ public class Main {
 
         System.out.println("Welcome to Richie's CLI");
         int option;
+
         do {
             scanner = new Scanner(System.in);
             System.out.println();
@@ -77,7 +94,6 @@ public class Main {
             System.out.println("3. Add two numbers");
             System.out.println("4. Exit the program");
             System.out.println("==========================================");
-
             System.out.print("Selection: ");
             option = scanner.nextInt();
             System.out.println();
@@ -92,10 +108,10 @@ public class Main {
                     break;
 
                 case 2:
-                    System.out.print("Enter a string to reverse\nInput: ");
-                    String str = scanner.next();
-                    System.out.print("Result: ");
-                    reverseStr(str);
+                    System.out.println("Enter a string to reverse");
+                    scanner.nextLine();
+                    System.out.print("Input: ");
+                    reverseStr();
                     System.out.println("==========================================");
                     break;
 
@@ -116,6 +132,7 @@ public class Main {
                     System.out.println("This is not a valid selection\nPlease, try again");
                     break;
             }
+            System.out.println("Would you like to try again?");
         } while (option != 4);
 
         System.out.println("Thank you for your participation");
