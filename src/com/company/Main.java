@@ -63,6 +63,7 @@ public class Main {
         for (int i = splitter.length - 1; i >= 0; i--) {
             rev += splitter[i];
         }
+        System.out.println("==========================================");
         System.out.println(rev);
     }
 
@@ -78,6 +79,7 @@ public class Main {
         for (int i = 0; i < num; i++) {
             rep += str;
         }
+        System.out.println("==========================================");
         System.out.println(rep);
     }
 
